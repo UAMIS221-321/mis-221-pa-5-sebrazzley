@@ -234,7 +234,11 @@ static void RouteClient(string userInputClient)
     if (userInputClient == "1")
     {
         
-          
+          Booking[] bookings = new Booking[15];
+          BookingUtility bookingUtility = new BookingUtility(bookings);
+
+          bookingUtility.GetAllBookings();
+          bookingUtility.PrintAllBookings();
           System.Console.WriteLine("showing");
 
 
