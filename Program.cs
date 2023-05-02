@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using mis_221_pa_5_sebrazzley;
 
 string userInput = GetMenuChoice();
@@ -122,6 +123,7 @@ static void DisplayClientMenu()
      System.Console.WriteLine("   ------------------");
      System.Console.WriteLine("1:    Show Available Sessions");
      System.Console.WriteLine("2:    Book a session");
+     System.Console.WriteLine("3:    Cancel a session");
 }
 
 static void DisplayAdminMenu()
@@ -171,7 +173,7 @@ static bool ValidMenuChoice(string userInput)
 static bool ValidMenuChoiceClient(string userInput)
 {
 
-    if (userInput == "1" || userInput == "2")
+    if (userInput == "1" || userInput == "2"||userInput == "3")
     {
         return true;
     }
@@ -234,12 +236,15 @@ static void RouteClient(string userInputClient)
     if (userInputClient == "1")
     {
         
-          Booking[] bookings = new Booking[15];
-          BookingUtility bookingUtility = new BookingUtility(bookings);
+          System.Console.WriteLine("showing listings");
 
-          bookingUtility.GetAllBookings();
-          bookingUtility.PrintAllBookings();
-          System.Console.WriteLine("showing");
+          Listing[] listings = new Listing[15];
+
+          Booking[] bookings = new Booking[15];
+          BookingUtility bookingUtility = new BookingUtility(bookings,listings);
+
+          bookingUtility.GetAllListings();
+          bookingUtility.PrintAllListings();
 
 
           Console.WriteLine("PRESS ANY KEY TO BEGIN");
@@ -249,6 +254,25 @@ static void RouteClient(string userInputClient)
     else if (userInputClient == "2")
     {
           System.Console.WriteLine("book a session");
+          Listing[] listings = new Listing[15];
+          Booking[] bookings = new Booking[15];
+          BookingUtility bookingUtility = new BookingUtility(bookings,listings);
+          bookingUtility.GetAllBookings();
+          bookingUtility.GetAllListings();
+          bookingUtility.BookSession();
+          bookingUtility.Save();
+
+          Console.WriteLine("PRESS ANY KEY TO BEGIN");
+          Console.ReadKey();
+    }
+    else if (userInputClient == "3")
+    {
+          //System.Console.WriteLine("cancel a session");
+         
+          System.Console.WriteLine("What is the ID of the session you would like to cancel");
+          
+          
+
           Console.WriteLine("PRESS ANY KEY TO BEGIN");
           Console.ReadKey();
     }
@@ -283,9 +307,6 @@ static void RouteTrainer(string userInputTrainer)
      if (userInputTrainer == "1")
      {
         
-          System.Console.WriteLine("Show bookings");
-          System.Console.WriteLine("TESTING");
-
           Trainer[] trainers = new Trainer[15];
           TrainerUtility trainerUtility = new TrainerUtility(trainers);
 

@@ -2,34 +2,41 @@ namespace mis_221_pa_5_sebrazzley
 {
     public class Booking
     {
-        private string ID;
+       private string listingID;
+       private string trainerName;
+       private string sessionDate;
+       private string customerName;
+       private string customerEmail;
 
-        private string trainerName;
-        private string sessionDate;
-        private string sessionTime;
-        private string sessionCost;
+       private string sessionStatus; 
+       
+       private string trainerID;
+       static int count;
 
-        private string status;
-        static int count;
+       public Booking()
+       {
 
-        public Booking(string ID,string trainerName, string sessionDate, string sessionTime, string sessionCost, string status)
+       }
+
+        public Booking(string listingID, string customerName, string customerEmail, string sessionDate,string trainerID, string trainerName, string sessionStatus)
         {
-            this.ID=ID;
+            this.listingID = listingID;
             this.trainerName = trainerName;
             this.sessionDate = sessionDate;
-            this.sessionTime = sessionTime;
-            this.sessionCost = sessionCost;
-            this.status = status;
-    
-        }
-        public void SetID(string ID)
-        {
-            this.ID = ID; //sets specific instance of the object to its correct title **known as data shadowing
+            this.customerName = customerName;
+            this.customerEmail = customerEmail;
+            this.sessionStatus = sessionStatus;
+            this.trainerID = trainerID;
         }
 
-        public string GetID()
+         public void SetListingID(string listingID)
         {
-            return ID;
+            this.listingID = listingID; //sets specific instance of the object to its correct title **known as data shadowing
+        }
+
+        public string GetListingID()
+        {
+            return listingID;
         }
 
         public void SetTrainerName(string trainerName)
@@ -51,44 +58,45 @@ namespace mis_221_pa_5_sebrazzley
         {
             return sessionDate;
         }
+
+        public void SetSessionStatus(string sessionStatus)
+        {
+            this.sessionStatus = sessionStatus;
+        }
+
+        public string GetSessionStatus()
+        {
+            return sessionStatus;
+        }
+
+        public void SetCustomerName(string customerName)
+        {
+            this.customerName = customerName;
+        }
+
+        public string GetCustomerName()
+        {
+            return customerName;
+        }
+
+        public void SetCustomerEmail(string customerEmail)
+        {
+            this.customerEmail = customerEmail;
+        }
+
+        public string GetCustomerEmail()
+        {
+            return customerEmail;
+        }
+
         static public void SetCount(int count)
         {
             Booking.count = count; //sets specific instance of the object to its correct title **known as data shadowing
         }
 
-
-         public void SetSessionTime(string sessionTime)
-        {
-            this.sessionTime = sessionTime; //sets specific instance of the object to its correct title **known as data shadowing
-        }
-
-        public string GetSessionTime()
-        {
-            return sessionTime;
-        }
         static public int GetCount()
         {
             return count;
-        }
-
-        public void SetSessionCost(string sessionCost)
-        {
-            this.sessionCost = sessionCost; //sets specific instance of the object to its correct title **known as data shadowing
-        }
-
-        public string GetSessionCost()
-        {
-            return sessionCost;
-        }
-
-        public void SetStatus(string status)
-        {
-            this.status = status; //sets specific instance of the object to its correct title **known as data shadowing
-        }
-
-        public string GetStatus()
-        {
-            return status;
         }
 
          static public void IncCount()
@@ -100,11 +108,17 @@ namespace mis_221_pa_5_sebrazzley
         {
             Booking.count--; 
         }
-        
-        public override string ToString()
+
+            public string ToFile()
         {
-            return $"Booking ID:{this.ID}. Trainer Name: {this.trainerName}. Session Date: {this.sessionDate}.  Session Time: {this.sessionTime}.  Session Cost: {this.sessionCost}.  Session Status: {this.status}. ";
+            return $"{listingID}#{customerName}#{customerEmail}#{sessionDate}#{trainerID}#{trainerName}#{sessionStatus}";
         }
+        
+        
+        
+
 
     }
+
+
 }
