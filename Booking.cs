@@ -5,22 +5,24 @@ namespace mis_221_pa_5_sebrazzley
         private string ID;
 
         private string trainerName;
-
         private string sessionDate;
         private string sessionTime;
         private string sessionCost;
+
+        private string status;
         static int count;
 
-        public Booking(string ID,string trainerName, string sessionDate, string sessionTime, string sessionCost)
+        public Booking(string ID,string trainerName, string sessionDate, string sessionTime, string sessionCost, string status)
         {
             this.ID=ID;
             this.trainerName = trainerName;
             this.sessionDate = sessionDate;
             this.sessionTime = sessionTime;
             this.sessionCost = sessionCost;
+            this.status = status;
     
         }
-         public void SetID(string ID)
+        public void SetID(string ID)
         {
             this.ID = ID; //sets specific instance of the object to its correct title **known as data shadowing
         }
@@ -30,7 +32,7 @@ namespace mis_221_pa_5_sebrazzley
             return ID;
         }
 
-         public void SetTrainerName(string trainerName)
+        public void SetTrainerName(string trainerName)
         {
             this.trainerName = trainerName; //sets specific instance of the object to its correct title **known as data shadowing
         }
@@ -78,6 +80,17 @@ namespace mis_221_pa_5_sebrazzley
         {
             return sessionCost;
         }
+
+        public void SetStatus(string status)
+        {
+            this.status = status; //sets specific instance of the object to its correct title **known as data shadowing
+        }
+
+        public string GetStatus()
+        {
+            return status;
+        }
+
          static public void IncCount()
         {
             Booking.count++; 
@@ -90,7 +103,7 @@ namespace mis_221_pa_5_sebrazzley
         
         public override string ToString()
         {
-            return $"Booking ID:{this.ID}. Trainer Name: {this.trainerName}. Session Date: {this.sessionDate}.  Session Time: {this.sessionTime}.  Session Cost: {this.sessionCost} ";
+            return $"Booking ID:{this.ID}. Trainer Name: {this.trainerName}. Session Date: {this.sessionDate}.  Session Time: {this.sessionTime}.  Session Cost: {this.sessionCost}.  Session Status: {this.status}. ";
         }
 
     }

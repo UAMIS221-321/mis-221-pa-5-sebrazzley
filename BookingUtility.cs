@@ -20,7 +20,7 @@ namespace mis_221_pa_5_sebrazzley
             while(line != null)
             {
                 string[] temp = line.Split('#');
-                bookings[Booking.GetCount()] = new Booking(temp[0], temp[1], temp[2], temp[3], temp[4]);
+                bookings[Booking.GetCount()] = new Booking(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5]);
                 Booking.IncCount();
                 line = inFile.ReadLine();
             }
@@ -34,7 +34,8 @@ namespace mis_221_pa_5_sebrazzley
         {
             for(int i = 0; i < Booking.GetCount(); i++)
             {
-                System.Console.WriteLine(bookings[i].ToString());
+                if(bookings[i].GetStatus() == "available")
+                    System.Console.WriteLine(bookings[i].ToString());
             }
         }
     }
