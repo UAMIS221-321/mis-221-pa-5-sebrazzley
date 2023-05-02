@@ -4,7 +4,7 @@ using mis_221_pa_5_sebrazzley;
 
 string userInput = GetMenuChoice();
 
-while (userInput != "3")
+while (userInput != "4")
 {
     Route(userInput);
     userInput = GetMenuChoice();
@@ -113,7 +113,8 @@ static void DisplayMenu()
      System.Console.WriteLine("   ------------------");
      Console.WriteLine("1:   Client Portal");
      Console.WriteLine("2:   Admin Portal");
-     Console.WriteLine("3:   Exit");
+     Console.WriteLine("3.   Reports");
+     Console.WriteLine("4:   Exit");
 }
 
 static void DisplayClientMenu()
@@ -162,7 +163,7 @@ static void DisplayListingMenu()
 static bool ValidMenuChoice(string userInput)
 {
 
-    if (userInput == "1" || userInput == "2" || userInput == "3")
+    if (userInput == "1" || userInput == "2" || userInput == "3"||userInput =="4")
     {
         return true;
     }
@@ -229,6 +230,17 @@ static void Route(string userInput)
           string userInputAdmin = GetMenuChoiceAdmin();
           RouteAdmin(userInputAdmin);
     }
+    else if(userInput == "3")
+    {
+        Listing[] listings = new Listing[15];
+        Booking[] bookings = new Booking[15];
+        Report reports = new Report(bookings, listings);
+
+        BookingUtility bookingUtility = new BookingUtility(bookings,listings);
+        bookingUtility.GetAllBookings();
+
+        reports.PrintAllCustomerEmail();
+    }
 }
 
 static void RouteClient(string userInputClient)
@@ -239,9 +251,11 @@ static void RouteClient(string userInputClient)
           System.Console.WriteLine("showing listings");
 
           Listing[] listings = new Listing[15];
-
           Booking[] bookings = new Booking[15];
           BookingUtility bookingUtility = new BookingUtility(bookings,listings);
+
+
+          
 
           bookingUtility.GetAllListings();
           bookingUtility.PrintAllListings();
@@ -256,6 +270,7 @@ static void RouteClient(string userInputClient)
           System.Console.WriteLine("book a session");
           Listing[] listings = new Listing[15];
           Booking[] bookings = new Booking[15];
+
           BookingUtility bookingUtility = new BookingUtility(bookings,listings);
           bookingUtility.GetAllBookings();
           bookingUtility.GetAllListings();
@@ -269,7 +284,8 @@ static void RouteClient(string userInputClient)
     {
           //System.Console.WriteLine("cancel a session");
          
-          System.Console.WriteLine("What is the ID of the session you would like to cancel");
+        System.Console.WriteLine("Cancelling");
+
           
           
 

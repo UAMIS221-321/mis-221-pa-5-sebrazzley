@@ -18,7 +18,7 @@ namespace mis_221_pa_5_sebrazzley
 
        }
 
-        public Booking(string listingID, string customerName, string customerEmail, string sessionDate,string trainerID, string trainerName, string sessionStatus)
+        public Booking(string listingID, string customerName, string customerEmail, string sessionDate, string trainerName, string sessionStatus)
         {
             this.listingID = listingID;
             this.trainerName = trainerName;
@@ -26,7 +26,6 @@ namespace mis_221_pa_5_sebrazzley
             this.customerName = customerName;
             this.customerEmail = customerEmail;
             this.sessionStatus = sessionStatus;
-            this.trainerID = trainerID;
         }
 
          public void SetListingID(string listingID)
@@ -43,6 +42,7 @@ namespace mis_221_pa_5_sebrazzley
         {
             this.trainerName = trainerName; //sets specific instance of the object to its correct title **known as data shadowing
         }
+
 
         public string GetTrainerName()
         {
@@ -111,7 +111,7 @@ namespace mis_221_pa_5_sebrazzley
 
             public string ToFile()
         {
-            return $"{listingID}#{customerName}#{customerEmail}#{sessionDate}#{trainerID}#{trainerName}#{sessionStatus}";
+            return $"{listingID}#{customerName}#{customerEmail}#{sessionDate}#{trainerName}#{sessionStatus}";
         }
         
         

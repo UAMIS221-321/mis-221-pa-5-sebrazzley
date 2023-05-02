@@ -43,7 +43,7 @@ namespace mis_221_pa_5_sebrazzley
             while(line != null)
             {
                 string[] temp = line.Split('#');
-                bookings[Booking.GetCount()] = new Booking(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5], temp[6]);
+                bookings[Booking.GetCount()] = new Booking(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5]);
                 Booking.IncCount();
                 line = inFile.ReadLine();
             }
@@ -69,24 +69,59 @@ namespace mis_221_pa_5_sebrazzley
             }
         }
 
+   
         public void BookSession()
         {
             Booking mybooking = new Booking();
+            Listing myListing = new Listing();
+            Trainer myTrainers = new Trainer();
 
             System.Console.WriteLine("Enter the session ID you would like to book for");
-            string userInput = System.Console.ReadLine();
-            mybooking.SetListingID(userInput);
+            
+            string searchVal = System.Console.ReadLine();
+            int foundIndex = Find(searchVal);
+           
 
-            System.Console.WriteLine("Please enter your name");
-            mybooking.SetCustomerName(System.Console.ReadLine());
+            
+           if(foundIndex != -1)
+            {
+                string searchValName = (listings[foundIndex].GetTrainerName());
 
-            System.Console.WriteLine("Please enter your email address");
-            mybooking.SetCustomerEmail(System.Console.ReadLine());
+                System.Console.WriteLine("Please enter your name");
+                mybooking.SetCustomerName(System.Console.ReadLine());
+
+                System.Console.WriteLine("Please enter your email address");
+                mybooking.SetCustomerEmail(System.Console.ReadLine());
+                
+                mybooking.SetListingID((listings[foundIndex].GetListingID()));
+                mybooking.SetSessionDate((listings[foundIndex].GetSessionDate()));
+                mybooking.SetSessionStatus("Booked");
+                //mybooking.SetTrainerID((trainers[foundTrainerIndex].GetTrainerID()));
+                
+
+                bookings[Booking.GetCount()] = mybooking;
+
+
+            
 
             bookings[Booking.GetCount()] = mybooking;
             Booking.IncCount();
 
+
+
+
+            
+
+
+            }
+            else if(foundIndex == -1)
+                System.Console.WriteLine("Error Finding");
+
+        
+
+
         }
+
 
         public void Save()
         {
@@ -99,6 +134,36 @@ namespace mis_221_pa_5_sebrazzley
 
             outFile.Close();
         }
+
+        public int Find(string searchVal)
+        {
+            for(int i = 0; i < Listing.GetCount(); i++)
+            {
+                string id = listings[i].GetTrainerName();
+                ;
+                
+                if(listings[i].GetListingID() == searchVal)
+                {
+                    System.Console.WriteLine("You are booking a session for : " + id);
+                    return i;
+                }
+            }
+            return -1;
+        }
+        public int FindBooking(string searchVal)
+        {
+            for(int i = 0; i < Booking.GetCount(); i++)
+            {
+                
+                if(bookings[i].GetListingID() == searchVal)
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+       
 
      
 
