@@ -227,14 +227,28 @@ static void Route(string userInput)
     }
     else if (userInput == "2")
     {
-          string userInputAdmin = GetMenuChoiceAdmin();
-          RouteAdmin(userInputAdmin);
+          
+
+          System.Console.WriteLine("Please enter the secret password (password is 0000)");
+          string password = System.Console.ReadLine();
+          if(password == "0000")
+          {
+           
+            string userInputAdmin = GetMenuChoiceAdmin();
+             RouteAdmin(userInputAdmin);
+          }
+        else
+        {
+            System.Console.WriteLine("Sorry! Incorrect Password. You are not authorized");
+            Console.WriteLine("PRESS ANY KEY TO BEGIN");
+            Console.ReadKey();
+        }
     }
     else if(userInput == "3")
     {
 
-        Booking[] bookings = new Booking[15];
-        Listing[] listings = new Listing[15];
+        Booking[] bookings = new Booking[100];
+        Listing[] listings = new Listing[100];
         BookingUtility bookingUtility = new BookingUtility(bookings,listings);
         bookingUtility.GetAllBookings();
 
@@ -253,8 +267,8 @@ static void RouteClient(string userInputClient)
         
           System.Console.WriteLine("showing listings");
 
-          Listing[] listings = new Listing[15];
-          Booking[] bookings = new Booking[15];
+          Listing[] listings = new Listing[100];
+          Booking[] bookings = new Booking[100];
           BookingUtility bookingUtility = new BookingUtility(bookings,listings);
 
 
@@ -271,8 +285,8 @@ static void RouteClient(string userInputClient)
     else if (userInputClient == "2")
     {
           System.Console.WriteLine("book a session");
-          Listing[] listings = new Listing[15];
-          Booking[] bookings = new Booking[15];
+          Listing[] listings = new Listing[100];
+          Booking[] bookings = new Booking[100];
           int pos = 0;
 
           BookingUtility bookingUtility = new BookingUtility(bookings,listings);
@@ -292,8 +306,8 @@ static void RouteClient(string userInputClient)
           //System.Console.WriteLine("cancel a session");
          
         System.Console.WriteLine("Cancelling");
-        Listing[] listings = new Listing[15];
-        Booking[] bookings = new Booking[15];
+        Listing[] listings = new Listing[100];
+        Booking[] bookings = new Booking[100];
 
         BookingUtility bookingUtility = new BookingUtility(bookings,listings);
         bookingUtility.GetAllBookings();
@@ -327,8 +341,8 @@ static void RouteAdmin(string userInputAdmin)
 
     else if(userInputAdmin=="3")
     {
-        Booking[] bookings = new Booking[15];
-        Listing[] listings = new Listing[15];
+        Booking[] bookings = new Booking[100];
+        Listing[] listings = new Listing[100];
         BookingUtility bookingUtility = new BookingUtility(bookings,listings);
         bookingUtility.GetAllBookings();
 
@@ -340,8 +354,8 @@ static void RouteAdmin(string userInputAdmin)
     }
     else if(userInputAdmin=="4")
     {
-        Booking[] bookings = new Booking[15];
-        Listing[] listings = new Listing[15];
+        Booking[] bookings = new Booking[100];
+        Listing[] listings = new Listing[100];
         BookingUtility bookingUtility = new BookingUtility(bookings,listings);
         bookingUtility.GetAllBookings();
         bookingUtility.UpdateBooking();
@@ -358,7 +372,7 @@ static void RouteTrainer(string userInputTrainer)
      if (userInputTrainer == "1")
      {
         
-          Trainer[] trainers = new Trainer[15];
+          Trainer[] trainers = new Trainer[100];
           TrainerUtility trainerUtility = new TrainerUtility(trainers);
 
           trainerUtility.GetAllTrainers();
@@ -372,7 +386,7 @@ static void RouteTrainer(string userInputTrainer)
      {
           System.Console.WriteLine("add a trainer");
           
-          Trainer[] trainers = new Trainer[15];
+          Trainer[] trainers = new Trainer[100];
           TrainerUtility trainerUtility = new TrainerUtility(trainers);
 
           trainerUtility.GetAllTrainers();
@@ -385,7 +399,7 @@ static void RouteTrainer(string userInputTrainer)
      {     
           System.Console.WriteLine("edit a trainer");
           
-          Trainer[] trainers = new Trainer[15];
+          Trainer[] trainers = new Trainer[100];
           TrainerUtility trainerUtility = new TrainerUtility(trainers);
 
           trainerUtility.GetAllTrainers();
@@ -396,7 +410,7 @@ static void RouteTrainer(string userInputTrainer)
      }
      else
      {
-          Trainer[] trainers = new Trainer[15];
+          Trainer[] trainers = new Trainer[100];
           TrainerUtility trainerUtility = new TrainerUtility(trainers);
           trainerUtility.GetAllTrainers();
 
@@ -414,7 +428,7 @@ static void RouteListing(string userInputListing)
      {
         
 
-          Listing[] listings = new Listing[15];
+          Listing[] listings = new Listing[100];
           ListingUtility listingUtility = new ListingUtility(listings);
 
           listingUtility.GetAllListings();
@@ -428,7 +442,7 @@ static void RouteListing(string userInputListing)
      {
 
           
-           Listing[] listings = new Listing[15];
+           Listing[] listings = new Listing[100];
           ListingUtility listingUtility = new ListingUtility(listings);
 
           listingUtility.GetAllListings();
@@ -442,7 +456,7 @@ static void RouteListing(string userInputListing)
      {     
 
           
-          Listing[] listings = new Listing[15];
+          Listing[] listings = new Listing[100];
           ListingUtility listingUtility = new ListingUtility(listings);
 
           listingUtility.GetAllListings();
@@ -454,7 +468,7 @@ static void RouteListing(string userInputListing)
      }
      else
      {
-          Listing[] listings = new Listing[15];
+          Listing[] listings = new Listing[100];
           ListingUtility listingUtility = new ListingUtility(listings);
 
           listingUtility.GetAllListings();
