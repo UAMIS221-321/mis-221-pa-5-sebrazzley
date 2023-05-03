@@ -232,14 +232,17 @@ static void Route(string userInput)
     }
     else if(userInput == "3")
     {
-        Listing[] listings = new Listing[15];
-        Booking[] bookings = new Booking[15];
-        Report reports = new Report(bookings, listings);
 
+        Booking[] bookings = new Booking[15];
+        Listing[] listings = new Listing[15];
         BookingUtility bookingUtility = new BookingUtility(bookings,listings);
         bookingUtility.GetAllBookings();
 
-        reports.PrintAllCustomerEmail();
+        Report reports = new Report(bookings);
+        reports.PrintAllByEmail();
+
+        Console.WriteLine("PRESS ANY KEY TO BEGIN");
+        Console.ReadKey();
     }
 }
 

@@ -109,6 +109,11 @@ namespace mis_221_pa_5_sebrazzley
             Booking.count--; 
         }
 
+        public override string ToString()
+        {
+            return $"Session ID:{this.listingID}. CustomerName: {this.customerName}. Customer Email: {this.customerEmail}. Date of Session: {this.sessionDate}. Trainer Name {this.trainerName}. SessionStatus: {this.sessionStatus} ";
+        }
+
             public string ToFile()
         {
             return $"{listingID}#{customerName}#{customerEmail}#{sessionDate}#{trainerName}#{sessionStatus}";
