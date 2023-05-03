@@ -10,6 +10,7 @@ namespace mis_221_pa_5_sebrazzley
         }
 
     
+        //prints a report that shows all bookings for a customer using their emial
         public void PrintAllByEmail()
         {
             int checking = 0;

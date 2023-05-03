@@ -33,6 +33,7 @@ namespace mis_221_pa_5_sebrazzley
             this.listingID = listingID; //sets specific instance of the object to its correct title **known as data shadowing
         }
 
+        //retrieves listing ID
         public string GetListingID()
         {
             return listingID;
@@ -43,6 +44,7 @@ namespace mis_221_pa_5_sebrazzley
             this.trainerName = trainerName; //sets specific instance of the object to its correct title **known as data shadowing
         }
 
+        //retrieves trainer name
 
         public string GetTrainerName()
         {
@@ -54,36 +56,43 @@ namespace mis_221_pa_5_sebrazzley
             this.sessionDate = sessionDate; //sets specific instance of the object to its correct title **known as data shadowing
         }
 
+        //retrieves session date
         public string GetSessionDate()
         {
             return sessionDate;
         }
 
+        //sets session status for that specific instance
         public void SetSessionStatus(string sessionStatus)
         {
             this.sessionStatus = sessionStatus;
         }
 
+        //retrieves session status
         public string GetSessionStatus()
         {
             return sessionStatus;
         }
 
+        //sets customer name for that instance
         public void SetCustomerName(string customerName)
         {
             this.customerName = customerName;
         }
 
+        //retrieves customer name
         public string GetCustomerName()
         {
             return customerName;
         }
 
+        //sets customer email for that specific instance
         public void SetCustomerEmail(string customerEmail)
         {
             this.customerEmail = customerEmail;
         }
 
+        //retrieves customer email
         public string GetCustomerEmail()
         {
             return customerEmail;
@@ -99,21 +108,25 @@ namespace mis_221_pa_5_sebrazzley
             return count;
         }
 
+        //incremement num of bookings
          static public void IncCount()
         {
             Booking.count++; 
         }
 
+        //decrease number of bookings
         static public void DecCount()
         {
             Booking.count--; 
         }
 
+        //prints to user in a nice format
         public override string ToString()
         {
             return $"Session ID:{this.listingID}. CustomerName: {this.customerName}. Customer Email: {this.customerEmail}. Date of Session: {this.sessionDate}. Trainer Name {this.trainerName}. SessionStatus: {this.sessionStatus} ";
         }
 
+        //prints to file in correct # deliminated way
             public string ToFile()
         {
             return $"{listingID}#{customerName}#{customerEmail}#{sessionDate}#{trainerName}#{sessionStatus}";

@@ -9,6 +9,7 @@ namespace mis_221_pa_5_sebrazzley
             this.trainers = trainers;
         }
 
+        //reads in all the available trainers from file
         public void GetAllTrainers()
         {
             //open
@@ -30,6 +31,7 @@ namespace mis_221_pa_5_sebrazzley
       
         }
 
+        //prints off all the available trainers from file
         public void PrintAllTrainers()
         {
             for(int i = 0; i < Trainer.GetCount(); i++)
@@ -38,6 +40,7 @@ namespace mis_221_pa_5_sebrazzley
             }
         }
 
+        //allows user to add a trainer
         public void AddTrainer()
         {
             System.Console.WriteLine("Please enter name of trainer");
@@ -57,6 +60,7 @@ namespace mis_221_pa_5_sebrazzley
             Trainer.IncCount();
         }
 
+        //saves changes made to array
         public void Save()
         {
             StreamWriter outFile = new StreamWriter("trainers.txt");
@@ -69,6 +73,7 @@ namespace mis_221_pa_5_sebrazzley
             outFile.Close();
         }
 
+        //allows user to delete a trainer
         public void DeleteTrainer(string trainerID)
         {
             StreamWriter outFile = new StreamWriter("trainers.txt");
@@ -85,6 +90,8 @@ namespace mis_221_pa_5_sebrazzley
             outFile.Close();
         }
 
+
+        //allows user to change info about a specific trainer
         public void UpdateTrainer()
         {
             System.Console.WriteLine("What is the ID of the trainer you want to update");
@@ -118,6 +125,7 @@ namespace mis_221_pa_5_sebrazzley
         }
 
 
+        //searches for specific trainer using their id
         public int Find(string searchVal)
         {
             for(int i = 0; i < Trainer.GetCount(); i++)

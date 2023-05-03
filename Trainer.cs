@@ -27,6 +27,9 @@ namespace mis_221_pa_5_sebrazzley
             this.trainerID = trainerID; //sets specific instance of the object to its correct title **known as data shadowing
         }
 
+
+
+        //retrieves trainer id
         public string GetTrainerID()
         {
             return trainerID;
@@ -37,6 +40,7 @@ namespace mis_221_pa_5_sebrazzley
             this.trainerName = trainerName; //sets specific instance of the object to its correct title **known as data shadowing
         }
 
+        //retrievs trainer name
         public string GetTrainerName()
         {
             return trainerName;
@@ -47,6 +51,7 @@ namespace mis_221_pa_5_sebrazzley
             this.trainerEmail = trainerEmail; //sets specific instance of the object to its correct title **known as data shadowing
         }
 
+        //retrieves trainer email
         public string GetTrainerEmail()
         {
             return trainerEmail;
@@ -57,6 +62,7 @@ namespace mis_221_pa_5_sebrazzley
             this.trainerMailingAddress = trainerMailingAddress; //sets specific instance of the object to its correct title **known as data shadowing
         }
 
+        //retreieves trainer mailing address
         public string GetTrainerMail()
         {
             return trainerMailingAddress;
@@ -67,27 +73,32 @@ namespace mis_221_pa_5_sebrazzley
             Trainer.count = count; //sets specific instance of the object to its correct title **known as data shadowing
         }
 
+        //retrieves total number of trainers
         static public int GetCount()
         {
             return count;
         }
 
+        //increase total number of trainer
          static public void IncCount()
         {
             Trainer.count++; 
         }
 
+        //decreases total number of trainers
         static public void DecCount()
         {
             Trainer.count--; 
         }
         
+        //makes text print out in nice format
         
         public override string ToString()
         {
             return $"Trainer name:{this.trainerName}. Trainer ID: {this.trainerID}. Trainer Email: {this.trainerEmail}. Trainer Mailing Address: {this.trainerMailingAddress}";
         }
 
+        //prints trainers to file with proper # delimination
         public string ToFile()
         {
             return $"{trainerName}#{trainerID}#{trainerEmail}#{trainerMailingAddress}";

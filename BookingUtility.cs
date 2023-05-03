@@ -6,12 +6,13 @@ namespace mis_221_pa_5_sebrazzley
 
         private Listing[] listings;
 
+        //arg constructor
         public BookingUtility(Booking[] bookings, Listing[] listings)
         {
             this.bookings = bookings;
             this.listings = listings;
         }
-
+        //Gets all the available session
         public void GetAllListings()
         {
             //open
@@ -32,6 +33,7 @@ namespace mis_221_pa_5_sebrazzley
 
       
         }
+        //Returns all the currently booked session
         public void GetAllBookings()
         {
             //open
@@ -52,6 +54,7 @@ namespace mis_221_pa_5_sebrazzley
       
         }
 
+        //prints the currently booked sessions to screen
         public void PrintAllBookings()
         {
             for(int i = 0; i < Booking.GetCount(); i++)
@@ -60,6 +63,7 @@ namespace mis_221_pa_5_sebrazzley
             }
         }
 
+        //prints available listings
         public void PrintAllListings()
         {
             for(int i = 0; i < Listing.GetCount(); i++)
@@ -70,7 +74,7 @@ namespace mis_221_pa_5_sebrazzley
         }
 
     
-
+        //allows user to book a session
         public int BookSession()
         {
             Booking mybooking = new Booking();
@@ -123,7 +127,7 @@ namespace mis_221_pa_5_sebrazzley
 
         }
 
-
+        //allows user to cancel a session
         public void CancelBooking()
         {
             System.Console.WriteLine("What is the ID of the listing you want to cancel");
@@ -152,7 +156,7 @@ namespace mis_221_pa_5_sebrazzley
 
         }
 
-
+        //allows user to change status of session to completed or cancelled
         public void UpdateBooking()
         {
             System.Console.WriteLine("What is the ID of the listing you want to cancel");
@@ -188,6 +192,8 @@ namespace mis_221_pa_5_sebrazzley
 
         }
 
+
+        //saves updated array
         public void Save()
         {
             StreamWriter outFile = new StreamWriter("transactions.txt");
@@ -200,6 +206,7 @@ namespace mis_221_pa_5_sebrazzley
             outFile.Close();
         }
 
+        //finds the position of the listing we are looking for
         public int Find(string searchVal)
         {
             for(int i = 0; i < Listing.GetCount(); i++)
@@ -215,6 +222,8 @@ namespace mis_221_pa_5_sebrazzley
             }
             return -1;
         }
+
+        //finds the position of the correct booking object
         public int FindBooking(string searchVal)
         {
             for(int i = 0; i < Booking.GetCount(); i++)

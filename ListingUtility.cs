@@ -9,6 +9,8 @@ namespace mis_221_pa_5_sebrazzley
             this.listings = listings;
         }
 
+
+        //gets all sessions from file
         public void GetAllListings()
         {
             //open
@@ -30,6 +32,7 @@ namespace mis_221_pa_5_sebrazzley
       
         }
 
+        //prints all listings
         public void PrintAllListings()
         {
             for(int i = 0; i < Listing.GetCount(); i++)
@@ -38,6 +41,7 @@ namespace mis_221_pa_5_sebrazzley
             }
         }
 
+        //allows user to add a session
         public void AddListing()
         {
             System.Console.WriteLine("Please enter name of Listing ID");
@@ -62,6 +66,8 @@ namespace mis_221_pa_5_sebrazzley
             Listing.IncCount();
         }
 
+
+        //saves updated array
         public void Save()
         {
             StreamWriter outFile = new StreamWriter("listing.txt");
@@ -74,6 +80,8 @@ namespace mis_221_pa_5_sebrazzley
             outFile.Close();
         }
 
+
+        //allows user to delete a array
         public void DeleteListing(string listingID)
         {
             StreamWriter outFile = new StreamWriter("listing.txt");
@@ -90,7 +98,8 @@ namespace mis_221_pa_5_sebrazzley
             outFile.Close();
         }
 
- 
+
+        //allows user to update the listing.txt to show booked instead of available
          public void UpdateAvailable(int pos)
         {
         
@@ -115,6 +124,8 @@ namespace mis_221_pa_5_sebrazzley
                 System.Console.WriteLine("Error Finding");
 
         }
+  
+        //allows user to update a specific listing
         public void UpdateListing()
         {
             System.Console.WriteLine("What is the ID of the listing you want to update");
@@ -154,7 +165,7 @@ namespace mis_221_pa_5_sebrazzley
 
         }
 
-
+        //finds location of specific listing using id
         public int Find(string searchVal)
         {
             for(int i = 0; i < Listing.GetCount(); i++)

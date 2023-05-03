@@ -4,6 +4,7 @@ using mis_221_pa_5_sebrazzley;
 
 string userInput = GetMenuChoice();
 
+//reuns while program is not exited out of
 while (userInput != "3")
 {
     Route(userInput);
@@ -32,7 +33,7 @@ static string GetMenuChoice()
 
     return userInput;
 }
-
+//retrieves menu choice for client option and error checks for valid menu choice selection
 static string GetMenuChoiceClient()
 {
     DisplayClientMenu();
@@ -50,7 +51,7 @@ static string GetMenuChoiceClient()
 
     return userInputClient;
 }
-
+//retrieves menu choice for admin and error checks for valid menu choice selection
 static string GetMenuChoiceAdmin()
 {
     DisplayAdminMenu();
@@ -68,7 +69,7 @@ static string GetMenuChoiceAdmin()
 
     return userInputAdmin;
 }
-
+//retrieves menu choice for trainer option and error checks for valid menu choice selection
 static string GetMenuChoiceTrainer()
 {
     DisplayTrainerMenu();
@@ -86,7 +87,7 @@ static string GetMenuChoiceTrainer()
 
     return userInputTrainer;
 }
-
+//retrieves menu choice for listing and error checks for valid menu choice selection
 static string GetMenuChoiceListing()
 {
     DisplayListingMenu();
@@ -118,15 +119,22 @@ static void DisplayMenu()
     System.Console.WriteLine("|__| |_____||__|\\_|  \\___| \\___/ |__|__||__|__||_____|      |__|  |__|\\_||__|__||____||__|__||_____||__|\\_|");
      
 
-System.Console.WriteLine("");
-System.Console.WriteLine("");
+    System.Console.WriteLine("");
+    System.Console.WriteLine("");
+
+    DateTime dateTime = DateTime.UtcNow.Date;
+    System.Console.Write("Today's Date:");
+    Console.WriteLine(dateTime.ToString("d"));
+    System.Console.WriteLine("");
+    System.Console.WriteLine("");
+
      System.Console.WriteLine("      Portal Menu");
      System.Console.WriteLine("   ------------------");
      Console.WriteLine("1:   Client Portal");
      Console.WriteLine("2:   Admin Portal");
      Console.WriteLine("3:   Exit");
 }
-
+//displays the client menu
 static void DisplayClientMenu()
 {
      Console.Clear();
@@ -136,7 +144,7 @@ static void DisplayClientMenu()
      System.Console.WriteLine("2:    Book a session");
      System.Console.WriteLine("3:    Cancel a session");
 }
-
+//displays the admin menu
 static void DisplayAdminMenu()
 {
      Console.Clear();
@@ -147,7 +155,7 @@ static void DisplayAdminMenu()
      System.Console.WriteLine("3:    Reports");
      System.Console.WriteLine("4:    Update Status");
 }
-
+//displays the trainer menu
 static void DisplayTrainerMenu()
 {
      Console.Clear();
@@ -158,7 +166,7 @@ static void DisplayTrainerMenu()
      System.Console.WriteLine("3:    Edit");
      System.Console.WriteLine("4:    Delete");
 }
-
+//displays the listing menu
 static void DisplayListingMenu()
 {
      Console.Clear();
@@ -181,7 +189,7 @@ static bool ValidMenuChoice(string userInput)
     else
         return false;
 }
-
+//Checks for valid menu choice
 static bool ValidMenuChoiceClient(string userInput)
 {
 
@@ -192,7 +200,7 @@ static bool ValidMenuChoiceClient(string userInput)
     else
         return false;
 }
-
+//Checks for valid menu choice
 static bool ValidMenuChoiceAdmin(string userInputAdmin)
 {
 
@@ -203,7 +211,7 @@ static bool ValidMenuChoiceAdmin(string userInputAdmin)
     else
         return false;
 }
-
+//Checks for valid menu choice
 static bool ValidMenuChoiceTrainer(string userInputTrainer)
 {
 
@@ -214,7 +222,7 @@ static bool ValidMenuChoiceTrainer(string userInputTrainer)
     else
         return false;
 }
-
+//Checks for valid menu choice
 static bool ValidMenuChoiceListing(string userInputListing)
 {
 
@@ -270,7 +278,7 @@ static void Route(string userInput)
         Console.ReadKey();
     }
 }
-
+//runs Client menu options
 static void RouteClient(string userInputClient)
 {
     if (userInputClient == "1")
@@ -332,7 +340,7 @@ static void RouteClient(string userInputClient)
           Console.ReadKey();
     }
 }
-
+//runs Admin menu options
 static void RouteAdmin(string userInputAdmin)
 {
     if (userInputAdmin == "1")
@@ -377,7 +385,7 @@ static void RouteAdmin(string userInputAdmin)
     }
     
 }
-
+//runs trainer menu options
 static void RouteTrainer(string userInputTrainer)
 {
      if (userInputTrainer == "1")
@@ -432,7 +440,7 @@ static void RouteTrainer(string userInputTrainer)
           Console.ReadKey();
      }
 }
-
+//runs listings menu options
 static void RouteListing(string userInputListing)
 {
      if (userInputListing == "1")
