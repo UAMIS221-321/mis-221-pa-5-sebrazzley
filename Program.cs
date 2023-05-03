@@ -4,7 +4,7 @@ using mis_221_pa_5_sebrazzley;
 
 string userInput = GetMenuChoice();
 
-while (userInput != "4")
+while (userInput != "3")
 {
     Route(userInput);
     userInput = GetMenuChoice();
@@ -113,8 +113,7 @@ static void DisplayMenu()
      System.Console.WriteLine("   ------------------");
      Console.WriteLine("1:   Client Portal");
      Console.WriteLine("2:   Admin Portal");
-     Console.WriteLine("3.   Reports");
-     Console.WriteLine("4:   Exit");
+     Console.WriteLine("3:   Exit");
 }
 
 static void DisplayClientMenu()
@@ -135,6 +134,7 @@ static void DisplayAdminMenu()
      System.Console.WriteLine("1:    Trainers");
      System.Console.WriteLine("2:    Listing");
      System.Console.WriteLine("3:    Reports");
+     System.Console.WriteLine("4:    Update Status");
 }
 
 static void DisplayTrainerMenu()
@@ -163,7 +163,7 @@ static void DisplayListingMenu()
 static bool ValidMenuChoice(string userInput)
 {
 
-    if (userInput == "1" || userInput == "2" || userInput == "3"||userInput =="4")
+    if (userInput == "1" || userInput == "2" || userInput == "3")
     {
         return true;
     }
@@ -185,7 +185,7 @@ static bool ValidMenuChoiceClient(string userInput)
 static bool ValidMenuChoiceAdmin(string userInputAdmin)
 {
 
-    if (userInputAdmin == "1" || userInputAdmin == "2" || userInputAdmin == "3")
+    if (userInputAdmin == "1" || userInputAdmin == "2" || userInputAdmin == "3"||userInputAdmin == "4")
     {
         return true;
     }
@@ -327,7 +327,28 @@ static void RouteAdmin(string userInputAdmin)
 
     else if(userInputAdmin=="3")
     {
-          System.Console.WriteLine("Reports");
+        Booking[] bookings = new Booking[15];
+        Listing[] listings = new Listing[15];
+        BookingUtility bookingUtility = new BookingUtility(bookings,listings);
+        bookingUtility.GetAllBookings();
+
+        Report reports = new Report(bookings);
+        reports.PrintAllByEmail();
+
+        Console.WriteLine("PRESS ANY KEY TO BEGIN");
+        Console.ReadKey();
+    }
+    else if(userInputAdmin=="4")
+    {
+        Booking[] bookings = new Booking[15];
+        Listing[] listings = new Listing[15];
+        BookingUtility bookingUtility = new BookingUtility(bookings,listings);
+        bookingUtility.GetAllBookings();
+        bookingUtility.UpdateBooking();
+        bookingUtility.Save();
+
+        Console.WriteLine("PRESS ANY KEY TO BEGIN");
+        Console.ReadKey();
     }
     
 }
