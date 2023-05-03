@@ -90,6 +90,30 @@ namespace mis_221_pa_5_sebrazzley
             outFile.Close();
         }
 
+         public void UpdateAvailable(int pos)
+        {
+        
+
+            if(pos != -1)
+            {
+
+                Listing myListing = new Listing();
+
+                myListing.SetListingID(listings[pos].GetListingID());
+                myListing.SetSessionDate(listings[pos].GetSessionDate());
+                myListing.SetSessionCost(listings[pos].GetSessionCost());
+                myListing.SetSessionTime(listings[pos].GetSessionTime());
+                myListing.SetTrainerName(listings[pos].GetTrainerName());
+                myListing.SetSessionStatus("Booked");
+                
+                listings[pos] = myListing;
+
+
+            }
+            else if(pos == -1)
+                System.Console.WriteLine("Error Finding");
+
+        }
         public void UpdateListing()
         {
             System.Console.WriteLine("What is the ID of the listing you want to update");

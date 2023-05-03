@@ -273,12 +273,16 @@ static void RouteClient(string userInputClient)
           System.Console.WriteLine("book a session");
           Listing[] listings = new Listing[15];
           Booking[] bookings = new Booking[15];
+          int pos = 0;
 
           BookingUtility bookingUtility = new BookingUtility(bookings,listings);
+          ListingUtility listingUtility = new ListingUtility(listings);
           bookingUtility.GetAllBookings();
           bookingUtility.GetAllListings();
-          bookingUtility.BookSession();
+          pos = bookingUtility.BookSession();
           bookingUtility.Save();
+          listingUtility.UpdateAvailable(pos);
+          listingUtility.Save();
 
           Console.WriteLine("PRESS ANY KEY TO BEGIN");
           Console.ReadKey();
@@ -288,6 +292,13 @@ static void RouteClient(string userInputClient)
           //System.Console.WriteLine("cancel a session");
          
         System.Console.WriteLine("Cancelling");
+        Listing[] listings = new Listing[15];
+        Booking[] bookings = new Booking[15];
+
+        BookingUtility bookingUtility = new BookingUtility(bookings,listings);
+        bookingUtility.GetAllBookings();
+        bookingUtility.CancelBooking();
+        bookingUtility.Save();
 
           
           

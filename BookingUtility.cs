@@ -69,8 +69,9 @@ namespace mis_221_pa_5_sebrazzley
             }
         }
 
-   
-        public void BookSession()
+    
+
+        public int BookSession()
         {
             Booking mybooking = new Booking();
             Listing myListing = new Listing();
@@ -118,10 +119,74 @@ namespace mis_221_pa_5_sebrazzley
                 System.Console.WriteLine("Error Finding");
 
         
-
+        return foundIndex;
 
         }
 
+
+        public void CancelBooking()
+        {
+            System.Console.WriteLine("What is the ID of the listing you want to cancel");
+
+            string searchVal = System.Console.ReadLine();
+            int foundIndex = FindBooking(searchVal);
+
+            if(foundIndex != -1)
+            {
+
+                Booking mybooking = new Booking();
+
+                mybooking.SetListingID(searchVal);
+                mybooking.SetCustomerName(bookings[foundIndex].GetCustomerName());
+                mybooking.SetCustomerEmail(bookings[foundIndex].GetCustomerEmail());
+                mybooking.SetSessionDate(bookings[foundIndex].GetSessionDate());
+                mybooking.SetTrainerName(bookings[foundIndex].GetTrainerName());
+                mybooking.SetSessionStatus("Cancelled");
+                
+                bookings[foundIndex] = mybooking;
+
+
+            }
+            else if(foundIndex == -1)
+                System.Console.WriteLine("Error Finding");
+
+        }
+
+
+        public void UpdateBooking()
+        {
+            System.Console.WriteLine("What is the ID of the listing you want to cancel");
+
+            string searchVal = System.Console.ReadLine();
+            int foundIndex = FindBooking(searchVal);
+
+            if(foundIndex != -1)
+            {
+
+                Booking mybooking = new Booking();
+
+                mybooking.SetListingID(searchVal);
+                mybooking.SetCustomerName(bookings[foundIndex].GetCustomerName());
+                mybooking.SetCustomerEmail(bookings[foundIndex].GetCustomerEmail());
+                mybooking.SetSessionDate(bookings[foundIndex].GetSessionDate());
+                mybooking.SetTrainerName(bookings[foundIndex].GetTrainerName());
+                
+                System.Console.WriteLine("Was this booking cancelled or completed?");
+                string userInput = System.Console.ReadLine();
+                
+                if(userInput.ToLower() == "cancelled")
+                    mybooking.SetSessionStatus("Cancelled");
+                else if(userInput.ToLower() == "completed");
+                    mybooking.SetSessionStatus("Completed");
+                
+                bookings[foundIndex] = mybooking;
+
+
+            }
+            else if(foundIndex == -1)
+                System.Console.WriteLine("Error Finding");
+
+        }
 
         public void Save()
         {
