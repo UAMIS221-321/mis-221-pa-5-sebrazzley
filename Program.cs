@@ -109,6 +109,17 @@ static string GetMenuChoiceListing()
 static void DisplayMenu()
 {
      Console.Clear();
+    System.Console.WriteLine(" ____   ___  ____    _____  ___   ____    ____  _          ______  ____    ____  ____  ____     ___  ____  ");
+    System.Console.WriteLine("|    \\ /  _]|    \\  / ___/ /   \\ |    \\  /    || |        |      ||    \\  /    ||    ||    \\   /  _]|    \\ ");
+    System.Console.WriteLine("|  o  )  [_ |  D  )(   \\_ |     ||  _  ||  o  || |        |      ||  D  )|  o  | |  | |  _  | /  [_ |  D  )");
+    System.Console.WriteLine("|   _/    _]|    /  \\__  ||  O  ||  |  ||     || |___     |_|  |_||    / |     | |  | |  |  ||    _]|    / ");
+    System.Console.WriteLine("|  | |   [_ |    \\  /  \\ ||     ||  |  ||  _  ||     |      |  |  |    \\ |  _  | |  | |  |  ||   [_ |    \\ ");
+    System.Console.WriteLine("|  | |     ||  .  \\ \\    ||     ||  |  ||  |  ||     |      |  |  |  .  \\|  |  | |  | |  |  ||     ||  .  \\");
+    System.Console.WriteLine("|__| |_____||__|\\_|  \\___| \\___/ |__|__||__|__||_____|      |__|  |__|\\_||__|__||____||__|__||_____||__|\\_|");
+     
+
+System.Console.WriteLine("");
+System.Console.WriteLine("");
      System.Console.WriteLine("      Portal Menu");
      System.Console.WriteLine("   ------------------");
      Console.WriteLine("1:   Client Portal");
